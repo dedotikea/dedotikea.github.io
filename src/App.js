@@ -3,10 +3,9 @@ import './App.css';
 import React from "react";
 
 function App() {
+  const teks = "test dari js"
   return (
-    <div className="App">
-      <p>test dari js</p>
-    </div>
+    teks;
   );
 }
 
