@@ -1,21 +1,40 @@
 'use strict';
 
-function LikeButton() {
-  const [liked, setLiked] = React.useState(false);
+function CounterButton() {
+    var state = React.useState(0);
+    var count = state[0];
+    var setCount = state[1];
 
-  if (liked) {
-    return 'You liked this!';
-  }
-
-  return React.createElement(
-    'button',
-    {
-      onClick: () => setLiked(true),
-    },
-    'Like'
-  );
+    return React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'p',
+            null,
+            'test counter'
+        ),
+        React.createElement(
+            'button',
+            { onClick: function onClick() {
+                    setCount(count - 1);
+                } },
+            '-'
+        ),
+        React.createElement(
+            'span',
+            null,
+            count
+        ),
+        React.createElement(
+            'button',
+            { onClick: function onClick() {
+                    setCount(count + 1);
+                } },
+            '+'
+        )
+    );
 }
 
-const rootNode = document.getElementById('root');
-const root = ReactDOM.createRoot(rootNode);
-root.render(React.createElement(LikeButton));
+var rootNode = document.getElementById('root');
+var root = ReactDOM.createRoot(rootNode);
+root.render(React.createElement(CounterButton));
